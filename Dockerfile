@@ -6,7 +6,7 @@ COPY package*.json ./
 RUN npm install
 
 WORKDIR /app
-COPY .. ./
+COPY . ./
 RUN npm run build
 
 FROM node:14-alpine AS application
