@@ -1,0 +1,4 @@
+.idea
+.elasticbeanstalk
+node_modules
+dist
