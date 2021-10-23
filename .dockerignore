@@ -1,4 +1,13 @@
+# not needed files and folders in image
 .idea
+.git
 .elasticbeanstalk
+Dockerfile
+scripts
+Dockerrun.aws.example.json
+
+# installs in image building progress progress
 node_modules
+
+# builds in image building progress
 dist
