@@ -1,4 +1,4 @@
-FROM node:14-alpine AS base
+FROM node:14-alpine
 
 WORKDIR /app
 
@@ -9,13 +9,13 @@ WORKDIR /app
 COPY . ./
 RUN npm run build
 
-FROM node:14-alpine AS application
+FROM node:14-alpine
 
 WORKDIR /app
-COPY --from=base /app/package*.json ./
+COPY --from=0 /app/package*.json ./
 RUN npm install --only=production
 RUN npm cache clean --force
-COPY --from=base /app/dist ./dist
+COPY --from=0 /app/dist ./dist
 
 USER node
 ENV PORT=8080
