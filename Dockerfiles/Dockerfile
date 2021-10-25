@@ -13,8 +13,7 @@ FROM node:14-alpine
 
 WORKDIR /app
 COPY --from=0 /app/package*.json ./
-RUN npm install --only=production
-RUN npm cache clean --force
+RUN npm install --only=production && npm cache clean --force
 COPY --from=0 /app/dist ./dist
 
 USER node
